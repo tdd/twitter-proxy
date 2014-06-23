@@ -132,6 +132,7 @@ exports.route = function (app) {
         } catch(e) {}
 
         // Pass on data with the same the status code
+        res.header('content-type', 'text/javascript');
         res.send(oaRes.statusCode, data);
       });
     });
