@@ -2,6 +2,14 @@
  * twitter-proxy
  */
 
+var path = require('path');
+var fs = require('fs');
+var envPath = path.join(__dirname, '.env');
+if (fs.statSync(envPath).isFile()) {
+  console.log('Loading extra environment from', envPath);
+  require('node-env-file')(envPath);
+}
+
 // Grab the config file
 var config;
 try {
