@@ -1,0 +1,10 @@
+#! /usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+
+var pidFile = path.resolve(__dirname, '../daemon.pid');
+require('daemon')();
+
+fs.writeFileSync(pidFile, process.pid.toString());
+require('../server');
